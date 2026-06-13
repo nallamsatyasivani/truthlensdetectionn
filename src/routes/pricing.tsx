@@ -71,7 +71,7 @@ function Pricing() {
                   </li>
                 ))}
               </ul>
-              <Link to="/detector">
+              <Link to="/">
                 <Button
                   className={`w-full mt-7 ${
                     t.featured

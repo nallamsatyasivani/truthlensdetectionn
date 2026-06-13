@@ -102,7 +102,7 @@ function Dashboard() {
               <h1 className="text-3xl font-display font-bold">Welcome back</h1>
               <p className="text-sm text-muted-foreground">Here's what's happening in your workspace.</p>
             </div>
-            <Link to="/detector">
+            <Link to="/">
               <Button className="bg-gradient-to-r from-neon-purple to-neon-blue text-white border-0">
                 New scan
               </Button>
@@ -144,7 +144,7 @@ function Dashboard() {
                 <p className="text-sm text-muted-foreground mt-1">
                   Run your first analysis to start building your history.
                 </p>
-                <Link to="/detector">
+                <Link to="/">
                   <Button className="mt-4 bg-gradient-to-r from-neon-purple to-neon-blue text-white border-0">
                     Start a scan
                   </Button>
