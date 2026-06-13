@@ -10,12 +10,22 @@ export function UploadZone() {
   const vidRef = useRef<HTMLInputElement>(null);
   const [drag, setDrag] = useState(false);
 
-  const handle = (file: File | undefined) => {
+  const handle = async (file: File | undefined) => {
     if (!file) return;
     const url = URL.createObjectURL(file);
+    const isImage = file.type.startsWith("image/");
+    let dataUrl = "";
+    if (isImage && file.size <= 8 * 1024 * 1024) {
+      dataUrl = await new Promise<string>((resolve, reject) => {
+        const r = new FileReader();
+        r.onload = () => resolve(String(r.result));
+        r.onerror = () => reject(r.error);
+        r.readAsDataURL(file);
+      });
+    }
     sessionStorage.setItem(
       "truthlens:scan",
-      JSON.stringify({ name: file.name, size: file.size, type: file.type, url }),
+      JSON.stringify({ name: file.name, size: file.size, type: file.type, url, dataUrl }),
     );
     navigate({ to: "/analysis" });
   };
