@@ -70,18 +70,6 @@ function Landing() {
               Instantly analyze images and videos to determine whether they are
               AI-generated, deepfake, manipulated, or authentic.
             </p>
-            <div className="mt-7 flex flex-wrap justify-center gap-3">
-              <Link to="/dashboard">
-                <Button size="lg" className="bg-gradient-to-r from-neon-purple to-neon-blue text-white border-0 glow-purple">
-                  Analyze Now <ArrowRight className="ml-1 h-4 w-4" />
-                </Button>
-              </Link>
-              <Link to="/pricing">
-                <Button size="lg" variant="outline" className="border-border bg-background/30 backdrop-blur">
-                  View pricing
-                </Button>
-              </Link>
-            </div>
           </motion.div>
 
           <div className="mt-12">
