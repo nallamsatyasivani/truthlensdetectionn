@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { Upload, ImageIcon, Video, Sparkles } from "lucide-react";
+import { Upload, ImageIcon, Video } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "@tanstack/react-router";
 
@@ -80,19 +80,6 @@ export function UploadZone() {
               className="border-border bg-background/30 backdrop-blur hover:bg-accent"
             >
               <Video className="mr-2 h-4 w-4" /> Upload video
-            </Button>
-            <Button
-              size="lg"
-              variant="ghost"
-              onClick={() => {
-                sessionStorage.setItem(
-                  "truthlens:scan",
-                  JSON.stringify({ name: "sample-portrait.jpg", size: 1248000, type: "image/jpeg", url: "" }),
-                );
-                navigate({ to: "/analysis" });
-              }}
-            >
-              <Sparkles className="mr-2 h-4 w-4 text-neon-cyan" /> Try demo
             </Button>
           </div>
 

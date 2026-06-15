@@ -1,14 +1,13 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import {
   ShieldCheck, ScanFace, Film, FileSearch, Eye, Lock, Zap, FileText,
-  ArrowRight, CheckCircle2,
+  CheckCircle2,
 } from "lucide-react";
 import { Navbar } from "@/components/truthlens/Navbar";
 import { Footer } from "@/components/truthlens/Footer";
 import { UploadZone } from "@/components/truthlens/UploadZone";
 import { ParticleField } from "@/components/truthlens/ParticleField";
-import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -70,18 +69,6 @@ function Landing() {
               Instantly analyze images and videos to determine whether they are
               AI-generated, deepfake, manipulated, or authentic.
             </p>
-            <div className="mt-7 flex flex-wrap justify-center gap-3">
-              <Link to="/dashboard">
-                <Button size="lg" className="bg-gradient-to-r from-neon-purple to-neon-blue text-white border-0 glow-purple">
-                  Analyze Now <ArrowRight className="ml-1 h-4 w-4" />
-                </Button>
-              </Link>
-              <Link to="/pricing">
-                <Button size="lg" variant="outline" className="border-border bg-background/30 backdrop-blur">
-                  View pricing
-                </Button>
-              </Link>
-            </div>
           </motion.div>
 
           <div className="mt-12">
