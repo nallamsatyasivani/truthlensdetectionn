@@ -1,14 +1,13 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import {
   ShieldCheck, ScanFace, Film, FileSearch, Eye, Lock, Zap, FileText,
-  ArrowRight, CheckCircle2,
+  CheckCircle2,
 } from "lucide-react";
 import { Navbar } from "@/components/truthlens/Navbar";
 import { Footer } from "@/components/truthlens/Footer";
 import { UploadZone } from "@/components/truthlens/UploadZone";
 import { ParticleField } from "@/components/truthlens/ParticleField";
-import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/")({
   head: () => ({

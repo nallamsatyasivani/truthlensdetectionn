@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { Upload, ImageIcon, Video, Sparkles } from "lucide-react";
+import { Upload, ImageIcon, Video } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "@tanstack/react-router";
 
