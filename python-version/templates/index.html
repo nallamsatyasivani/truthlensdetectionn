@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}TruthLens — AI Image Detection{% endblock %}
+{% block content %}
+<section class="hero">
+  <h1>See past synthetic media.</h1>
+  <p class="lead">
+    TruthLens analyses images and tells you whether they look AI-generated
+    or real — with honest confidence, not hype.
+  </p>
+  <div class="badge {{ 'badge-live' if model_status.loaded else 'badge-demo' }}">
+    {{ model_status.label }}
+  </div>
+  <div class="cta-row">
+    {% if current_user.is_authenticated %}
+      <a class="btn btn-primary" href="{{ url_for('main.dashboard') }}">Open dashboard</a>
+    {% else %}
+      <a class="btn btn-primary" href="{{ url_for('auth.register') }}">Get started</a>
+      <a class="btn btn-ghost" href="{{ url_for('auth.login') }}">I have an account</a>
+    {% endif %}
+  </div>
+</section>
+
+<section class="grid features">
+  <div class="card">
+    <h3>Image analysis</h3>
+    <p>Per-channel colour stats, edge density, FFT energy, and noise — fed to a classifier.</p>
+  </div>
+  <div class="card">
+    <h3>Honest output</h3>
+    <p>If no trained model is loaded, results are clearly labelled <em>Demo Analysis</em>.</p>
+  </div>
+  <div class="card">
+    <h3>History & dashboard</h3>
+    <p>Every analysis is stored against your account so you can revisit it later.</p>
+  </div>
+</section>
+{% endblock %}
