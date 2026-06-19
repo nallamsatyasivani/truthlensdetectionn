@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title %}Dashboard — TruthLens{% endblock %}
+{% block content %}
+<h1>Hi, {{ current_user.username }}</h1>
+
+<div class="badge {{ 'badge-live' if model_status.loaded else 'badge-demo' }}">
+  {{ model_status.label }}
+</div>
+
+<section class="grid stats">
+  <div class="card"><h3>{{ stats.total }}</h3><p>Total analyses</p></div>
+  <div class="card"><h3>{{ stats.ai }}</h3><p>Flagged AI</p></div>
+  <div class="card"><h3>{{ stats.real }}</h3><p>Flagged Real</p></div>
+  <div class="card"><h3>{{ stats.uncertain }}</h3><p>Uncertain</p></div>
+</section>
+
+<section class="upload">
+  <h2>Analyse an image</h2>
+  <form id="upload-form" method="post" action="{{ url_for('main.analyze') }}"
+        enctype="multipart/form-data" class="dropzone">
+    <input type="file" name="image" id="image-input" accept="image/*" required />
+    <label for="image-input" id="dropzone-label">
+      <span>Drop an image here, or click to choose</span>
+      <small>JPG, PNG, WEBP — up to 10 MB</small>
+    </label>
+    <img id="preview" alt="" hidden />
+    <button class="btn btn-primary" type="submit">Analyse</button>
+  </form>
+</section>
+
+<section>
+  <h2>Recent</h2>
+  {% if recent %}
+    <ul class="history-list">
+      {% for r in recent %}
+        <li>
+          <a href="{{ url_for('main.result', analysis_id=r['id']) }}">
+            <span class="tag tag-{{ r['classification'] }}">{{ r['classification']|upper }}</span>
+            {{ r['original_name'] }}
+            {% if r['is_demo'] %}<em>(demo)</em>{% endif %}
+            <span class="muted">{{ r['created_at'] }}</span>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p class="muted">No analyses yet — upload one above.</p>
+  {% endif %}
+</section>
+{% endblock %}
